@@ -1,6 +1,8 @@
 package Person;
 
-public abstract class Family{
+import Home.Apartment;
+
+public abstract class Family  {
     private String nameIsFather;
     private String nameIsMother;
     private String nameIsChild;

@@ -7,40 +7,42 @@ import Person.FamilyOfApartment;
 import Person.FamilyOfHostel;
 import Person.FamilyOfHotel;
 
+import java.util.Arrays;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Pay house1 = new Apartment();
-        Pay house2 = new Hostel();
-        Pay house3 = new Hotel();
 
-        Family[] family = {new FamilyOfApartment("Alex","Lisa","Jon",70,"Semenovskaya ploshad 34"),
-                new FamilyOfHostel("Kevin","Kirra",null,100,"Bakuninskaya 11"),
-                new FamilyOfHotel("Mark","Bella","Klark",200,"Preobrajenskaya 4")};
+        Apartment apartment = new Apartment(new FamilyOfApartment("Alex","Lisa","Jon",70,"Semenovskaya ploshad 34"));
+        Hostel hostel = new Hostel(new FamilyOfHostel("Kevin","Kirra",null,100,"Bakuninskaya 11"));
+        Hotel hotel = new Hotel( new FamilyOfHotel("Mark","Bella","Klark",200,"Preobrajenskaya 4"));
 
-        for (Family fam : family) {
-            if (fam instanceof FamilyOfApartment) {
+        Pay[] pay = {apartment,hostel,hotel};
+
+        for (Pay fam : pay) {
+            if (fam instanceof Apartment) {
                 System.out.println(fam);
-                house1.method();
+                apartment.method();
                 System.out.println("__________________________________________________________________________");
             }
         }
 
-        for (Family fam : family) {
-            if (fam instanceof FamilyOfHostel) {
-                System.out.println(fam);
-                house2.method();
-                System.out.println("__________________________________________________________________________");
+            for (Pay fam : pay) {
+                if (fam instanceof Hostel) {
+                    System.out.println(fam);
+                    hostel.method();
+                    System.out.println("__________________________________________________________________________");
+                }
             }
-        }
 
-        for (Family fam : family) {
-            if (fam instanceof FamilyOfHotel) {
-                System.out.println(fam);
-                house3.method();
+            for (Pay fam : pay) {
+                if (fam instanceof Hotel) {
+                    System.out.println(fam);
+                    hotel.method();
+                }
             }
-        }
+
 
 
     }
